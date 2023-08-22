@@ -1,8 +1,21 @@
-# React + Vite
+Kenzie Hub
+Tecnologias utilizadas:
+Frontend (ReactJS, Styled-Components , Axios, Vite, React-router-dom, Rsuite)
+API utilizada: https://thecatapi.com/
+Rodando projeto
+Link do deploy: https://catmgur.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+É necessário instalar as dependências, portanto utilize o comando abaixo para instalar tais dependências:
 
-Currently, two official plugins are available:
+yarn install
+Atenção: é necessário utilizar o yarn pois esse projeto foi iniciado com esse gerenciador de pacotes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para verificar se já possui o gerenciador yarn instalado utilize o seguinte comando:
+
+yarn --version
+Caso não possua o yarn instalado, utilize o comando abaixo para instalar globalmente na sua máquina:
+
+npm install --global yarn
+
+Para rodar o projeto
+yarn dev
