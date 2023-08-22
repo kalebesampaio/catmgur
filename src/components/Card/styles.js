@@ -13,6 +13,11 @@ export const CardStyle = styled.li`
   }
   margin-right: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const CardName = styled.div`
@@ -20,4 +25,8 @@ export const CardName = styled.div`
   height: 60px;
   width: 100%;
   padding: 15px;
+
+  h3 {
+    font-size: 1rem;
+  }
 `;

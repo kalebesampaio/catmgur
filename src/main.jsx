@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Home } from "./pages/Home";
 import { GlobalStyle } from "./styles/Global";
-
-const queryClient = new QueryClient();
+import { BrowserRouter } from "react-router-dom";
+import { RoutesMain } from "./routes";
+import { AuthProvider } from "./providers/breed.provider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GlobalStyle />
-    <QueryClientProvider client={queryClient}>
-      <Home />
-    </QueryClientProvider>
+    <BrowserRouter>
+      <GlobalStyle />
+      <AuthProvider>
+        <RoutesMain />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

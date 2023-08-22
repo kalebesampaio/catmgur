@@ -1,20 +1,20 @@
 import { Card } from "../../components/Card";
-
-import { useQuery } from "@tanstack/react-query";
 import { HomeStyle } from "./styles";
 import { Header } from "../../components/Header";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../providers/breed.provider";
+
 export const Home = () => {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: () =>
-      fetch("https://api.thecatapi.com/v1/images/search?limit=10").then((res) =>
-        res.json()
-      ),
-  });
-
-  if (isLoading) return "Loading...";
-
-  if (error) return "An error has occurred: " + error.message;
+  const { data, setCurrentPage, currentPage } = useContext(AuthContext);
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setCurrentPage((currentValue) => currentValue + 1);
+      }
+    });
+    intersectionObserver.observe(document.querySelector("#sentinela"));
+    return () => intersectionObserver.disconnect();
+  }, []);
 
   return (
     <>
@@ -23,9 +23,10 @@ export const Home = () => {
         <div className="hd"></div>
         <div className="container">
           <ul>
-            {data?.map((todo) => (
-              <Card key={todo.id} url={todo.url} text={todo.id} />
+            {data?.map((cat) => (
+              <Card key={cat.id} url={cat.url} text={cat.id} />
             ))}
+            <li id="sentinela"></li>
           </ul>
         </div>
       </HomeStyle>
